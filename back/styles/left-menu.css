@@ -1,0 +1,16 @@
+/* left bar */
+main section.left-bar{
+    
+    /* height: 94vh; */
+    height: auto;
+    width: 10vw;
+    text-align: center;
+    padding: 0 1vw;
+    background-color: rgba(38, 72, 76, 1);
+    color: white;
+    
+}
+section.left-bar ul{
+    padding: 0;
+    list-style-type: none;
+}
