@@ -7,7 +7,7 @@ body{
 }
 a{
     text-decoration: none;
-    color: DarkSlateGray;
+    color: black;
 }
 a:hover{
     font-size: 1.2rem;
@@ -37,133 +37,26 @@ header nav .right-nav button img{
     width: 18px;
     height: 18px;
 }
-
-
-/* left nav */
-header nav .left-nav{
-    position: absolute;
-    right: 0%;
-    
-}
-
 /* 
     MAIN    
 */
 main{
-    display: flex;
+    width: 60vw;
+    margin: auto;
 }
-
-/* left bar */
-main section.left-bar{
-    
-    height: 94vh;
-    width: 10vw;
-    text-align: center;
-    padding: 1vw;
-    background-color: rgba(38, 72, 76, 1);
-    color: white;
-    
-}
-section.left-bar ul{
-    padding: 0;
-    list-style-type: none;
-}
-
-/* Topics info */
-section.topics-info .top-topics{
-    display: flex;
-}
-section.topics-info .top-topic{
-    width: 30vw;
-    height: 40vh;
-    
-    position: relative
-}
-
-section.topics-info .top-topic img{
+main .topics{
     width: 100%;
-    height: 100%;
-
-}
-
-section.topics-info .top-topic .text-topic{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(255,255,255, 0.2);
-    width: 100%;
-    
-}
-
-/* title for last topics */
-section.topics-info h2{
-    width: 100%;
-    text-align: center;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
-    margin: 2px 0;
-}
-
-/* last topics */
-section.topics-info .last-topics{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-}
-section.topics-info .last-topic{
     position: relative;
+    margin: 2px 0; 
 }
-section.topics-info .last-topic a{
+
+main .topics img{
+    width: 100%;
+}
+main .topics .text-intro{
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: rgba(255,255,255,0.2);
     width: 100%;
+    background-color: rgba(255,255,255, 0.2);
 }
-
-
-/* 
-    FULL PAGE SECTION
-*/
-section.off{
-    display: none;
-}
-section.on{
-    display: block;
-}
-
-
-section.login{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    background-color: red;
-    width: 30%;
-    
-}
-
-section.login label{
-    display: block;
-    flex-direction: column;
-}
-
-
-/* login */
-
-section.sing-in{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    background-color: red;
-    width: 30%;
-    
-}
-
-section.sing-in label{
-    display: block;
-    flex-direction: column;
-}
-
