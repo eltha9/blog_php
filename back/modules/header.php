@@ -12,9 +12,5 @@
                     </div>
                 </form>
             </div>
-            <div class="left-nav">
-                <button class="login">Login</button>
-                <button class="sing-in">sing in</button>
-            </div>
         </nav>
     </header>

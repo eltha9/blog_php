@@ -25,3 +25,8 @@ Data base will have 2 table:
     - `hash_comment`: hash of the comment
     - `hash_topic`: hash of topic
     - `signaled`: numbers of time the topic is signaled
+
+
+## Admin system comming soon
+
+front for the dev, back for the work :)
