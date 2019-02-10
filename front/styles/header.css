@@ -1,0 +1,39 @@
+/* 
+    all the page 
+*/
+body{
+    margin: 0;
+    position: relative;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    font-size: 1.2rem;
+}
+
+img{
+    margin-right: 0;
+}
+/* 
+    header 
+*/
+header nav{
+    display: flex;
+    position: relative;
+    background-color: rgba(56, 56, 56, 0.6);
+    height: 6vh;;
+}
+/* right nav */
+header nav .right-nav{
+    display: flex;
+    
+}
+header nav .right-nav a img{
+    width: 48px;
+}
+header nav .right-nav button img{
+    width: 18px;
+    height: 18px;
+}
