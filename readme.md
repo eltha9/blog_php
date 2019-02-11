@@ -28,6 +28,13 @@ Data base will have 2 table:
 
 
 **Data base configuration**
+How to configure your data base connection: 
+- create a `config.ini` file in the root, and add this 5 varriable:
+    - `host`
+    - `port`
+    - `db_name`
+    - `user`
+    - `psw`
 
 ## Admin system comming soon
 
