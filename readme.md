@@ -27,6 +27,8 @@ Data base will have 2 table:
     - `signaled`: numbers of time the topic is signaled
 
 
+**Data base configuration**
+
 ## Admin system comming soon
 
 front for the dev, back for the work :)

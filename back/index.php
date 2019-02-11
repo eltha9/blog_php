@@ -1,6 +1,8 @@
 <?php
 setcookie('test','coucou', time()+1000, '/');
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

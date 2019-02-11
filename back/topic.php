@@ -21,7 +21,7 @@
             </div>
         </section>
         <section class="to-comment">
-            <form action="topic.html" method="GET">
+            <form action="topic.php" method="GET">
                 <label>
                     commentaire <br>
                     <textarea name="comment"></textarea>
