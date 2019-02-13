@@ -1,8 +1,10 @@
 <?php
 setcookie('test','coucou', time()+1000, '/');
 
+include 'modules/database.php';
+$topics = fetch($pdo,'topics','*');
 
-
+$topics = (object)$topics;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,34 +21,15 @@ setcookie('test','coucou', time()+1000, '/');
 
 
     <main>
+        <?php foreach($topics as $value):?>
         <section class="topics">
             <img src="https://picsum.photos/600/200/?image=431" alt="">
-            <a href="topic.php" class="text-intro">
-                <h3>gfzeygvfdagzevr</h3>
-                <p>azerhiulerh azieurhiezuhr eiauzrgiezugre rigzergyogr</p>
+            <a href="<?= 'topic.php?topic='.$value->hash_topic ?>" class="text-intro">
+                <h3><?= $value->title ?></h3>
+                <p> <?= mb_strimwidth($value->content , 0, 300, "...") ?> </p>
             </a>
         </section>
-        <section class="topics">
-            <img src="https://picsum.photos/600/200/?image=431" alt="">
-            <a href="topic.php" class="text-intro">
-                <h3>gfzeygvfdagzevr</h3>
-                <p>azerhiulerh azieurhiezuhr eiauzrgiezugre rigzergyogr</p>
-            </a>
-        </section>
-        <section class="topics">
-            <img src="https://picsum.photos/600/200/?image=431" alt="">
-            <a href="topic.php" class="text-intro">
-                <h3>gfzeygvfdagzevr</h3>
-                <p>azerhiulerh azieurhiezuhr eiauzrgiezugre rigzergyogr</p>
-            </a>
-        </section>
-        <section class="topics">
-            <img src="https://picsum.photos/600/200/?image=431" alt="">
-            <a href="topic.php" class="text-intro">
-                <h3>gfzeygvfdagzevr</h3>
-                <p>azerhiulerh azieurhiezuhr eiauzrgiezugre rigzergyogr</p>
-            </a>
-        </section>
+        <?php endforeach ?>
     </main>
   
     <footer>

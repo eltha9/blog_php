@@ -1,6 +1,6 @@
 <?php
 // get psw 
-$db_log = parse_ini_file("../config.ini");
+$db_log = parse_ini_file("config.ini");
 $db_log = (object)$db_log;
 
 
@@ -12,26 +12,61 @@ try{
     die('error in db');
 }
 
+// test varriable
+$tab = [
+    'title' => 'akojihug',
+    'content' => 'guhijokihuzgr hugoyuifherhpgo <i> jihpuigyou</i>',
+    'date' => '2019-02-13',
+    'hour' => '23:56:45',
+    'hash_topic' => 'dfghj45678lknjbhvg'
+];
 
+// concatenate function
+function concatenate($tab){
+    $temp = '';
+
+    foreach ($tab as $key => $value) {
+        if($key<count($tab)-1){
+            $temp = $temp.'`'.$value.'` , ';    
+        }else{
+            $temp = $temp.'`'.$value.'`';
+        }
+
+    }
+    return $temp;
+}
+
+
+//usefull function
 function fetch($pdo, $table,$selection, $condition = NULL ){
     if($condition != NULL){
-        $query = $pdo->query('SELECT '.$selection.' FROM '.$table.' WHEN '.$condition)->fetchAll();
+        $query = $pdo->query('SELECT '.$selection.' FROM '.$table.' WHERE '.$condition)->fetchAll();
+        var_dump($query);
         echo 'option';
     }else{
         $query = $pdo->query('SELECT '.$selection.' FROM '.$table)->fetchAll();
         echo 'no option';
     }
-    
+
     return $query; 
 }
 
-function add(){
-    $exec = $pdo->exec('INSERT INTO');
+function add($pdo, $table, $keys){ // $keys is an associatif table with the keys and values of them
+    $exec = $pdo->exec('INSERT INTO'.$table.'('. concatenate(array_keys($keys)) .') VALUES ('. concatenate($keys) .')');
+    print_r($exec);
 }
-// function remove(){
+
+add($pdo, 'topics', $tab);
+
+
+// function remove($pdo, $table){
 
 // }
+function update($pdo, $table){
 
-print_r(fetch($pdo,'topics','id'));
+}
+echo '<pre>';
+print_r(fetch($pdo,'topics','*', 'id >1'));
+echo '</pre>';
 
 ?>
