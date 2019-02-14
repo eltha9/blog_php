@@ -1,13 +1,12 @@
 <?php
 // get psw 
-$db_log = parse_ini_file("config.ini");
+$db_log = parse_ini_file("../config.ini");
 $db_log = (object)$db_log;
 
 
 try{
     $pdo = new PDO('mysql:dbname='.$db_log->db_name.';host='.$db_log->host.';port='.$db_log->port.'', $db_log->user, $db_log->psw);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-    echo 'ok db';
 }catch(PDOException $e){
     die('error in db');
 }
@@ -22,15 +21,32 @@ $tab = [
 ];
 
 // concatenate function
-function concatenate($tab){
+function concatenate($tab, $separate = '\''){
     $temp = '';
-
+    $i =0;
     foreach ($tab as $key => $value) {
-        if($key<count($tab)-1){
+
+        if($i<count($tab)-1){
+            $temp = $temp.'\''.$value.'\' , ';    
+        }else{
+            $temp = $temp.'\''.$value.'\'';
+        }
+        $i++;
+
+    }
+    return $temp;
+}
+function concatenate_keys($tab){
+    $temp = '';
+    $i =0;
+    foreach ($tab as $key => $value) {
+
+        if($i<count($tab)-1){
             $temp = $temp.'`'.$value.'` , ';    
         }else{
             $temp = $temp.'`'.$value.'`';
         }
+        $i++;
 
     }
     return $temp;
@@ -41,7 +57,6 @@ function concatenate($tab){
 function fetch($pdo, $table,$selection, $condition = NULL ){
     if($condition != NULL){
         $query = $pdo->query('SELECT '.$selection.' FROM '.$table.' WHERE '.$condition)->fetchAll();
-        var_dump($query);
         echo 'option';
     }else{
         $query = $pdo->query('SELECT '.$selection.' FROM '.$table)->fetchAll();
@@ -52,11 +67,11 @@ function fetch($pdo, $table,$selection, $condition = NULL ){
 }
 
 function add($pdo, $table, $keys){ // $keys is an associatif table with the keys and values of them
-    $exec = $pdo->exec('INSERT INTO'.$table.'('. concatenate(array_keys($keys)) .') VALUES ('. concatenate($keys) .')');
-    print_r($exec);
+
+    $exec = $pdo->exec('INSERT INTO '.$table.' ('. $k .') VALUES ('. $p .')');
 }
 
-add($pdo, 'topics', $tab);
+// add($pdo, 'topics', $tab);
 
 
 // function remove($pdo, $table){
@@ -65,8 +80,8 @@ add($pdo, 'topics', $tab);
 function update($pdo, $table){
 
 }
-echo '<pre>';
-print_r(fetch($pdo,'topics','*', 'id >1'));
-echo '</pre>';
+// echo '<pre>';
+// print_r(fetch($pdo,'topics','*', 'id >1'));
+// echo '</pre>';
 
 ?>

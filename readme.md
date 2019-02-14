@@ -36,6 +36,11 @@ How to configure your data base connection:
     - `user`
     - `psw`
 
+## database functionality
+ an `add` function to BDD
+ an `fetch` function do DBB
+
+
 ## Admin system comming soon
 
 front for the dev, back for the work :)
