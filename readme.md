@@ -37,8 +37,13 @@ How to configure your data base connection:
     - `psw`
 
 ## database functionality
- an `add` function to BDD
- an `fetch` function do DBB
+
+The database work with small function:
+
+- an `add` function to DB
+- an `fetch` function to DB
+- an `remove` function to DB
+- an `update` function to DB
 
 
 ## Admin system comming soon
